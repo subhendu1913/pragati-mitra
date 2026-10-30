@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #17365d;
+  --color-navy-dark: #102a4c;
+  --color-navy-light: #1f4a7a;
+  --color-teal: #159b8c;
+  --color-teal-dark: #0e7c70;
+  --color-teal-light: #e3f4f2;
+  --color-cream: #f7f9fc;
+  --font-sans: var(--font-inter), var(--font-odiya), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Oriya", sans-serif;
+  --shadow-card: 0 1px 2px rgba(23, 54, 93, 0.05), 0 10px 30px -12px rgba(23, 54, 93, 0.12);
+  --shadow-pop: 0 24px 60px -12px rgba(23, 54, 93, 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-slate-800 antialiased;
+    font-family: var(--font-sans);
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-card;
+  }
+  .btn, .btn-primary, .btn-teal, .btn-ghost, .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-150 select-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply bg-navy text-white hover:bg-navy-light active:scale-[0.98];
+  }
+  .btn-teal {
+    @apply bg-teal text-white hover:bg-teal-dark active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 active:scale-[0.98];
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-sm {
+    @apply px-2.5 py-1.5 text-xs rounded-lg;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/25;
+  }
+  .label {
+    @apply block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5;
+  }
+  .th {
+    @apply text-left text-[11px] font-bold uppercase tracking-wider text-slate-400 px-4 py-2.5 border-b border-slate-100 bg-slate-50/60;
+  }
+  .td {
+    @apply px-4 py-3 text-sm border-b border-slate-50 align-middle text-slate-700;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .navlink {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-teal-light/60 hover:text-navy transition-colors;
+  }
+  .navlink-active {
+    @apply bg-navy text-white hover:bg-navy hover:text-white shadow-sm;
+  }
+}
